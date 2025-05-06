@@ -64,7 +64,7 @@ JWT_SECRET=your_jwt_secret
 cd backend
 npm install
 ```
-## Backend Integration
+#### Backend Integration
 
 This frontend connects to a Node.js/Express backend API. Make sure the backend server is running on port 5000 for the application to work correctly.
 
