@@ -42,6 +42,7 @@ export default function Invoice({
       if (onDownloadPdf) {
         onDownloadPdf();
       } else if (invoiceRef.current) {
+        // Add a loading state or feedback if needed
         await generatePdf(invoiceRef.current, `invoice-${orderNumber}.pdf`);
       }
     } catch (error) {
@@ -53,7 +54,7 @@ export default function Invoice({
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="mb-4 flex justify-between items-center">
+      <div className="mb-4 flex justify-between items-center print:hidden">
         <button
           onClick={() => router.push('/orders')}
           className="flex items-center text-accent-400 hover:text-accent-300"
@@ -74,7 +75,14 @@ export default function Invoice({
         ref={invoiceRef} 
         className="bg-dark-800 border border-dark-700 rounded-lg shadow-md p-6 max-w-4xl mx-auto"
         id="invoice-content"
+        style={{
+          // Add inline styles to ensure PDF rendering with dark theme
+          backgroundColor: '#1a1a2e',
+          color: '#e2e2e2',
+          minHeight: '100%'
+        }}
       >
+        {/* Invoice Header */}
         <div className="flex justify-between items-start mb-8">
           <div>
             <h1 className="text-2xl font-bold text-dark-100">INVOICE</h1>
@@ -88,6 +96,7 @@ export default function Invoice({
           </div>
         </div>
 
+        {/* Billing Information */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
           <div>
             <h3 className="font-semibold text-dark-200 mb-2">Bill To:</h3>
@@ -103,6 +112,7 @@ export default function Invoice({
           </div>
         </div>
 
+        {/* Order Items Table */}
         <div className="border-t border-b border-dark-700 py-4 mb-8">
           <table className="w-full">
             <thead>
@@ -134,6 +144,7 @@ export default function Invoice({
           </table>
         </div>
 
+        {/* Order Summary */}
         <div className="flex justify-end">
           <div className="w-64">
             <div className="flex justify-between mb-2">
@@ -155,11 +166,29 @@ export default function Invoice({
           </div>
         </div>
 
+        {/* Footer */}
         <div className="mt-8 text-center text-dark-400 text-sm">
           <p>Thank you for your purchase!</p>
           <p>If you have any questions, please contact our customer support.</p>
+          <p className="mt-4">© {new Date().getFullYear()} PageVault. Built by Sandaru Piumantha.</p>
         </div>
       </div>
+
+      {/* Add print styles */}
+      <style jsx global>{`
+        @media print {
+          body {
+            background-color: #1a1a2e !important;
+            color: #e2e2e2 !important;
+          }
+          #invoice-content {
+            background-color: #1a1a2e !important;
+            color: #e2e2e2 !important;
+            border: none !important;
+            box-shadow: none !important;
+          }
+        }
+      `}</style>
     </div>
   );
 } 

@@ -41,7 +41,7 @@ export default function SearchPage() {
       
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
         <div className={`${isMobileFilterOpen ? 'block' : 'hidden'} lg:block lg:col-span-1`}>
-          <div className="sticky top-4 bg-white p-4 rounded-lg shadow-md">
+          <div className="sticky top-4 p-4 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-4 flex items-center">
               <FaFilter className="mr-2 text-primary-600" /> 
               Refine Results
