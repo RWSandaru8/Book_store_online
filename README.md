@@ -147,4 +147,4 @@ The app will be available at: [http://localhost:3000](http://localhost:3000)
 
 ### Authors
 
-- [Sandaru Piumantha](https://github.com/yourgithub)  
+- [Sandaru Piumantha](https://github.com/RWSandaru8)  
