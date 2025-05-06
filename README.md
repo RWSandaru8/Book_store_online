@@ -79,7 +79,6 @@ npm install
 
 To ensure the application can connect to the backend server properly, create a `.env.local` file in the frontend directory with the following content:
 
-```
 # Backend API URL - This needs to be NEXT_PUBLIC_ to be accessible in the browser
 NEXT_PUBLIC_BACKEND_URL=http://localhost:5000
 
