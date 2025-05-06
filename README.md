@@ -68,7 +68,7 @@ npm install
 
 This frontend connects to a Node.js/Express backend API. Make sure the backend server is running on port 5000 for the application to work correctly.
 
-Make sure to adjust the URL if your backend is running on a different port or host!.
+Make sure to adjust the URL if your backend is running on a different port or host !.
 ### Frontend Setup
 
 ```bash
