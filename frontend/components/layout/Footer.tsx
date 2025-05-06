@@ -14,7 +14,9 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4 text-accent-400">PageVault</h3>
             <p className="text-dark-300 mb-4">
-              Your one-stop destination for all your book needs. Browse, buy, and enjoy!
+              Your next obsession await Here!
+              We are committed to providing you with the best books and resources to fuel your passion for reading.   
+              Buy, Read, Enjoy!
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-dark-300 hover:text-accent-400 transition-colors">
