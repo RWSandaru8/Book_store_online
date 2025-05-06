@@ -14,15 +14,15 @@ export async function generateMetadata({ params }: BookPageProps): Promise<Metad
     const book = await response.json();
     
     return {
-      title: `${book.title} - Online Book Manager`,
+      title: `${book.title} - PageVault`,
       description: book.description ? 
         `${book.description.substring(0, 160)}...` : 
-        'Book details in Online Book Manager',
+        'Book details in PageVault',
     };
   } catch (error) {
     console.error('Error fetching book for metadata:', error);
     return {
-      title: 'Book Details - Online Book Manager',
+      title: 'Book Details - PageVault',
       description: 'View book details and purchase books online',
     };
   }

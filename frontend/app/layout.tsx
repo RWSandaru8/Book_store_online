@@ -12,7 +12,7 @@ import { ThemeProvider } from '@/context/ThemeContext';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Online Book Manager',
+  title: 'PageVault',
   description: 'Browse and purchase books online',
 };
 

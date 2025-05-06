@@ -109,7 +109,7 @@ export default function BookList({ featured = false, limit, searchQuery }: BookL
   if (books.length === 0) {
     return (
       <div className="text-center py-8 bg-dark-800 border border-dark-700 rounded-lg p-6">
-        <p className="text-dark-300 mb-2">No books found matching your criteria.</p>
+        <p className="text-dark-200 mb-2">No books found matching your criteria.</p>
         <p className="text-sm text-dark-400">Try adjusting your filters or search query.</p>
       </div>
     );
@@ -117,8 +117,8 @@ export default function BookList({ featured = false, limit, searchQuery }: BookL
 
   return (
     <div>
-      <p className="text-sm text-dark-400 mb-4">Showing {books.length} book{books.length !== 1 ? 's' : ''}</p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+      <p className="text-sm text-dark-400 mb-6">Showing {books.length} book{books.length !== 1 ? 's' : ''}</p>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {books.map((book) => (
           <BookCard key={book.id} book={book} />
         ))}

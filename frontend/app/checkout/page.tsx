@@ -3,7 +3,7 @@ import CheckoutForm from '@/components/checkout/CheckoutForm';
 import { CheckoutProvider } from '@/components/checkout/CheckoutContext';
 
 export const metadata: Metadata = {
-  title: 'Checkout - Online Book Manager',
+  title: 'Checkout - PageVault',
   description: 'Complete your purchase',
 };
 

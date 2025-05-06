@@ -1,7 +1,7 @@
 import { LoginForm } from '@/components/auth/LoginForm';
 
 export const metadata = {
-  title: 'Login - Online Book Manager',
+  title: 'Login - PageVault',
   description: 'Login to your account',
 };
 

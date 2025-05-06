@@ -5,7 +5,7 @@ import { BookFilterSidebar } from '@/components/books/BookFilterSidebar';
 import { FaTags, FaInfoCircle } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-  title: 'Books - Online Book Manager',
+  title: 'Books - PageVault',
   description: 'Browse our collection of books with our new competitive pricing',
 };
 

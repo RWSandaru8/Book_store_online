@@ -1,7 +1,7 @@
 import { RegisterForm } from '@/components/auth/RegisterForm';
 
 export const metadata = {
-  title: 'Register - Online Book Manager',
+  title: 'Register - PageVault',
   description: 'Create a new account to start shopping for books',
 };
 

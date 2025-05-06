@@ -81,10 +81,10 @@ export default function Invoice({
             <p className="text-dark-300">#{orderNumber}</p>
           </div>
           <div className="text-right">
-            <h2 className="font-bold text-xl text-dark-100">Online Book Manager</h2>
+            <h2 className="font-bold text-xl text-dark-100">PageVault</h2>
             <p className="text-dark-300">123 Book Street</p>
             <p className="text-dark-300">Booktown, BK 12345</p>
-            <p className="text-dark-300">support@onlinebookmanager.com</p>
+            <p className="text-dark-300">support@pagevault.com</p>
           </div>
         </div>
 

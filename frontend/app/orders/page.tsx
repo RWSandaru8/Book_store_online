@@ -84,18 +84,18 @@ export default function OrderHistoryPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold mb-6">Your Order History</h1>
+      <h1 className="text-2xl font-bold mb-6 text-dark-100">Your Order History</h1>
       
       {isLoading ? (
-        <div className="flex justify-center items-center py-12">
-          <FaSpinner className="animate-spin text-primary-600 mr-2" size={24} />
+        <div className="flex justify-center items-center py-12 text-dark-200">
+          <FaSpinner className="animate-spin text-accent-500 mr-2" size={24} />
           <span>Loading your orders...</span>
         </div>
       ) : orders.length === 0 ? (
-        <div className="bg-white rounded-lg shadow-md p-8 text-center">
-          <FaShoppingCart className="mx-auto text-gray-400 mb-4" size={48} />
-          <h2 className="text-xl font-semibold mb-2">No orders yet</h2>
-          <p className="text-gray-600 mb-6">
+        <div className="bg-dark-800 border border-dark-700 rounded-lg shadow-md p-8 text-center">
+          <FaShoppingCart className="mx-auto text-dark-400 mb-4" size={48} />
+          <h2 className="text-xl font-semibold mb-2 text-dark-100">No orders yet</h2>
+          <p className="text-dark-300 mb-6">
             You haven't made any purchases yet. Start shopping to see your order history.
           </p>
           <button 
@@ -108,32 +108,32 @@ export default function OrderHistoryPage() {
       ) : (
         <div className="grid gap-6">
           {orders.map((order, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md p-6">
+            <div key={index} className="bg-dark-800 border border-dark-700 rounded-lg shadow-md p-6">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold flex items-center">
-                  <FaBook className="text-primary-600 mr-2" />
+                <h3 className="text-lg font-semibold flex items-center text-dark-100">
+                  <FaBook className="text-accent-400 mr-2" />
                   Order #{index + 1}
                 </h3>
-                <span className="text-sm text-gray-500 flex items-center">
+                <span className="text-sm text-dark-400 flex items-center">
                   <FaCalendarAlt className="mr-1" />
                   {new Date(order.checkout_date_and_time).toLocaleDateString()}
                 </span>
               </div>
               
-              <div className="border-t border-b py-4 my-4">
+              <div className="border-t border-b border-dark-700 py-4 my-4">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div>
-                    <p className="text-sm text-gray-500">ISBN</p>
-                    <p className="font-medium">{order.book_isbn}</p>
+                    <p className="text-sm text-dark-400">ISBN</p>
+                    <p className="font-medium text-dark-200">{order.book_isbn}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Quantity</p>
-                    <p className="font-medium">{order.qty}</p>
+                    <p className="text-sm text-dark-400">Quantity</p>
+                    <p className="font-medium text-dark-200">{order.qty}</p>
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Total</p>
-                    <p className="font-medium flex items-center">
-                      <FaDollarSign className="text-green-600" size={14} />
+                    <p className="text-sm text-dark-400">Total</p>
+                    <p className="font-medium flex items-center text-dark-200">
+                      <FaDollarSign className="text-accent-400" size={14} />
                       {formatPrice(order.total_price)}
                     </p>
                   </div>

@@ -7,7 +7,7 @@ import { FaBook, FaShoppingCart, FaTags, FaArrowRight } from 'react-icons/fa';
 
 export default function Home() {
   const { isAuthenticated } = useAuth();
-  
+
   return (
     <div className="space-y-16">
       {/* Hero Section */}
@@ -33,25 +33,25 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
+
       {/* Featured Books Section */}
       <section className="page-container">
         <div className="flex items-center justify-between mb-8">
-          <div className="flex items-center">
-            <FaTags className="text-accent-400 mr-2" />
+          <div className="flex flex-row items-center">
             <h2 className="section-heading">Featured Books</h2>
           </div>
-          <Link href="/books" className="flex items-center text-accent-400 hover:text-accent-500 transition-colors">
-            View All <FaArrowRight className="ml-2" />
+          <Link href="/books" className="inline-flex items-center text-accent-400 hover:text-accent-500 transition-colors">
+            <span>View All</span>
+            <FaArrowRight className="ml-2" />
           </Link>
         </div>
         <BookList featured={true} limit={4} />
       </section>
-      
+
       {/* Features Section */}
       <section className="bg-dark-900/50 py-16">
         <div className="page-container">
-          <h2 className="section-heading text-center mb-12">Why Choose BookManager</h2>
+          <h2 className="section-heading text-center mb-12">Why Choose PageVault</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="card bg-dark-800 rounded-xl shadow-sm hover:shadow-md transition-shadow p-8 flex flex-col items-center text-center">
               <div className="bg-dark-700 p-4 rounded-full mb-4">
@@ -72,12 +72,12 @@ export default function Home() {
                 <FaTags className="text-2xl text-accent-400" />
               </div>
               <h3 className="text-xl font-semibold mb-3 text-dark-100">Competitive Pricing</h3>
-              <p className="text-dark-300">Our books are now priced between $10 and $100 for better affordability and value.</p>
+              <p className="text-dark-300">Our store is now offering affordability and best value for your money.</p>
             </div>
           </div>
         </div>
       </section>
-      
+
       {/* CTA Section */}
       <section className="page-container">
         <div className="bg-dark-800 border border-dark-700 rounded-xl p-8 md:p-12 text-center">
