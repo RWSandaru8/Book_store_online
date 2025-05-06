@@ -4,6 +4,7 @@ import Link from 'next/link';
 import BookList from '@/components/books/BookList';
 import { useAuth } from '@/context/AuthContext';
 import { FaBook, FaShoppingCart, FaTags, FaArrowRight } from 'react-icons/fa';
+import BackgroundAnimation from '@/components/layout/BackgroundAnimation';
 
 export default function Home() {
   const { isAuthenticated } = useAuth();
@@ -12,6 +13,7 @@ export default function Home() {
     <div className="space-y-16">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
+        <BackgroundAnimation />
         <div className="bg-gradient-to-r from-dark-800 to-dark-900">
           <div className="container mx-auto px-4 py-20">
             <div className="max-w-3xl mx-auto text-center">
