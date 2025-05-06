@@ -118,7 +118,7 @@ export default function PaymentForm() {
     if (firstDigit === '3') return <FaCcAmex className="text-blue-500" size={24} />;
     if (firstDigit === '6') return <FaCcDiscover className="text-orange-500" size={24} />;
     
-    return <FaCreditCard className="text-gray-400" size={24} />;
+    return <FaCreditCard className="text-dark-400" size={24} />;
   };
 
   const handleLoadSavedInfo = async () => {
@@ -128,12 +128,12 @@ export default function PaymentForm() {
   return (
     <form className="space-y-4">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-semibold">Payment Information</h2>
+        <h2 className="text-xl font-semibold text-dark-100">Payment Information</h2>
         {isAuthenticated && savedPaymentInfo && (
           <button 
             type="button"
             onClick={handleLoadSavedInfo}
-            className="text-primary-600 flex items-center text-sm"
+            className="text-accent-400 hover:text-accent-300 flex items-center text-sm"
           >
             <FaHistory className="mr-1" /> Load Saved
           </button>
@@ -141,7 +141,7 @@ export default function PaymentForm() {
       </div>
       
       <div>
-        <label htmlFor="cardNumber" className="block text-gray-700 font-medium mb-1">
+        <label htmlFor="cardNumber" className="block text-dark-200 font-medium mb-1">
           Card Number
         </label>
         <div className="relative">
@@ -166,7 +166,7 @@ export default function PaymentForm() {
       </div>
       
       <div>
-        <label htmlFor="cardHolder" className="block text-gray-700 font-medium mb-1">
+        <label htmlFor="cardHolder" className="block text-dark-200 font-medium mb-1">
           Cardholder Name
         </label>
         <input
@@ -181,7 +181,7 @@ export default function PaymentForm() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="expiryDate" className="block text-gray-700 font-medium mb-1">
+          <label htmlFor="expiryDate" className="block text-dark-200 font-medium mb-1">
             Expiry Date (MM/YY)
           </label>
           <input
@@ -201,7 +201,7 @@ export default function PaymentForm() {
         </div>
         
         <div>
-          <label htmlFor="cvv" className="block text-gray-700 font-medium mb-1">
+          <label htmlFor="cvv" className="block text-dark-200 font-medium mb-1">
             CVV
           </label>
           <input
@@ -221,12 +221,12 @@ export default function PaymentForm() {
         </div>
       </div>
       
-      <div className="bg-gray-50 p-4 rounded-md border border-gray-200 mt-6">
+      <div className="bg-dark-800 p-4 rounded-md border border-dark-700 mt-6">
         <div className="flex items-center">
-          <div className="flex-shrink-0 mr-2 text-gray-400">
+          <div className="flex-shrink-0 mr-3 text-accent-400">
             <FaCreditCard size={20} />
           </div>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-dark-300">
             This is a secure payment. Your card details are encrypted and secure.
             We do not store your full card number.
           </p>

@@ -80,9 +80,9 @@ export default function CheckoutForm() {
 
   if (totalItems === 0) {
     return (
-      <div className="bg-white rounded-lg shadow-md p-6 text-center">
-        <h2 className="text-xl font-semibold mb-2">Your cart is empty</h2>
-        <p className="text-gray-600">
+      <div className="bg-dark-800 border border-dark-700 rounded-lg shadow-md p-6 text-center">
+        <h2 className="text-xl font-semibold mb-2 text-dark-100">Your cart is empty</h2>
+        <p className="text-dark-300">
           You don't have any items in your cart to checkout.
         </p>
       </div>
@@ -92,43 +92,56 @@ export default function CheckoutForm() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       <div className="lg:col-span-2">
-        <div className="bg-white rounded-lg shadow-md p-6 mb-6">
+        <div className="bg-dark-800 border border-dark-700 rounded-lg shadow-md p-6 mb-6">
           {/* Checkout Steps Progress */}
-          <div className="hidden md:flex items-center mb-8">
-            {steps.map((s, i) => (
-              <div key={s.id} className="flex-1 flex flex-col items-center">
-                <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                    step >= s.id
-                      ? 'bg-primary-600 text-white'
-                      : 'bg-gray-200 text-gray-600'
-                  }`}
-                >
-                  <s.icon size={16} />
-                </div>
-                <div
-                  className={`text-sm mt-2 ${
-                    step >= s.id ? 'text-primary-600 font-medium' : 'text-gray-500'
-                  }`}
-                >
-                  {s.name}
-                </div>
-                {i < steps.length - 1 && (
+          <div className="hidden md:block mb-8">
+            <div className="flex items-center justify-between">
+              {steps.map((s, i) => (
+                <div key={s.id} className="flex flex-col items-center relative">
                   <div
-                    className={`h-1 w-full mt-3 ${
-                      step > s.id ? 'bg-primary-600' : 'bg-gray-200'
+                    className={`w-10 h-10 rounded-full flex items-center justify-center ${
+                      step >= s.id
+                        ? 'bg-accent-500 text-dark-100'
+                        : 'bg-dark-700 text-dark-400'
                     }`}
-                  ></div>
-                )}
-              </div>
-            ))}
+                  >
+                    <s.icon size={18} />
+                  </div>
+                  <div
+                    className={`text-sm mt-2 ${
+                      step >= s.id ? 'text-accent-400 font-medium' : 'text-dark-400'
+                    }`}
+                  >
+                    {s.name}
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Progress bar - now as a separate element below the steps */}
+            <div className="relative mt-5 h-1 bg-dark-700">
+              <div 
+                className="absolute h-1 bg-accent-500 transition-all duration-300"
+                style={{ 
+                  width: `${(step - 1) / (steps.length - 1) * 100}%`,
+                  left: 0,
+                }}
+              ></div>
+            </div>
           </div>
 
           {/* Mobile Progress */}
           <div className="md:hidden mb-6 text-center">
-            <h2 className="text-lg font-medium">
+            <h2 className="text-lg font-medium text-dark-100">
               Step {step} of {steps.length}: {steps.find(s => s.id === step)?.name}
             </h2>
+            {/* Mobile progress bar */}
+            <div className="relative mt-4 h-1 bg-dark-700">
+              <div 
+                className="absolute h-1 bg-accent-500"
+                style={{ width: `${(step - 1) / (steps.length - 1) * 100}%` }}
+              ></div>
+            </div>
           </div>
 
           {/* Current Step Content */}

@@ -36,9 +36,9 @@ export default function CartDetails() {
   
   if (cartItems.length === 0) {
     return (
-      <div className="bg-white rounded-lg shadow-md p-6 text-center">
-        <h2 className="text-xl font-semibold mb-4">Your cart is empty</h2>
-        <p className="text-gray-600 mb-6">
+      <div className="bg-dark-800 border border-dark-700 rounded-lg shadow-md p-6 text-center">
+        <h2 className="text-xl font-semibold mb-4 text-dark-100">Your cart is empty</h2>
+        <p className="text-dark-300 mb-6">
           Looks like you haven't added any books to your cart yet.
         </p>
         <Link href="/books" className="btn-primary inline-block">
@@ -51,18 +51,18 @@ export default function CartDetails() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
       <div className="lg:col-span-2">
-        <div className="bg-white rounded-lg shadow-md">
-          <div className="p-6 border-b">
-            <h2 className="text-xl font-semibold">
+        <div className="bg-dark-800 border border-dark-700 rounded-lg shadow-md">
+          <div className="p-6 border-b border-dark-700">
+            <h2 className="text-xl font-semibold text-dark-100">
               Cart Items ({totalItems})
             </h2>
           </div>
           
-          <ul className="divide-y divide-gray-200">
+          <ul className="divide-y divide-dark-700">
             {cartItems.map((item) => (
               <li key={item.id} className="p-6 flex flex-col sm:flex-row sm:items-center">
                 <div className="flex-shrink-0 mr-4 mb-4 sm:mb-0">
-                  <div className="relative w-20 h-28 bg-gray-200 rounded">
+                  <div className="relative w-20 h-28 bg-dark-700 rounded">
                     {item.thumbnail ? (
                       <Image
                         src={item.thumbnail}
@@ -73,17 +73,17 @@ export default function CartDetails() {
                       />
                     ) : (
                       <div className="flex items-center justify-center h-full">
-                        <span className="text-gray-400 text-xs">No image</span>
+                        <span className="text-dark-400 text-xs">No image</span>
                       </div>
                     )}
                   </div>
                 </div>
                 
                 <div className="flex-grow mb-4 sm:mb-0">
-                  <Link href={`/books/${item.id}`} className="font-medium hover:text-primary-600">
+                  <Link href={`/books/${item.id}`} className="font-medium text-dark-200 hover:text-accent-400">
                     {item.title}
                   </Link>
-                  <div className="text-primary-600 font-bold mt-1">
+                  <div className="text-accent-400 font-bold mt-1">
                     ${item.price.toFixed(2)}
                   </div>
                 </div>
@@ -91,15 +91,15 @@ export default function CartDetails() {
                 <div className="flex items-center space-x-2 sm:w-32 sm:justify-end">
                   <button
                     onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                    className="p-1 rounded bg-gray-200 hover:bg-gray-300"
+                    className="p-1 rounded bg-dark-700 hover:bg-dark-600 text-dark-300"
                     aria-label="Decrease quantity"
                   >
                     <FaMinus size={12} />
                   </button>
-                  <span className="w-8 text-center">{item.quantity}</span>
+                  <span className="w-8 text-center text-dark-200">{item.quantity}</span>
                   <button
                     onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                    className="p-1 rounded bg-gray-200 hover:bg-gray-300"
+                    className="p-1 rounded bg-dark-700 hover:bg-dark-600 text-dark-300"
                     aria-label="Increase quantity"
                   >
                     <FaPlus size={12} />
@@ -107,12 +107,12 @@ export default function CartDetails() {
                 </div>
                 
                 <div className="sm:w-24 sm:text-right mt-4 sm:mt-0">
-                  <div className="font-bold">
+                  <div className="font-bold text-dark-100">
                     ${(item.price * item.quantity).toFixed(2)}
                   </div>
                   <button
                     onClick={() => removeFromCart(item.id)}
-                    className="text-red-500 hover:text-red-700 flex items-center sm:justify-end mt-2"
+                    className="text-red-400 hover:text-red-300 flex items-center sm:justify-end mt-2"
                     aria-label="Remove item"
                   >
                     <FaTrash size={14} className="mr-1" />
@@ -123,14 +123,14 @@ export default function CartDetails() {
             ))}
           </ul>
           
-          <div className="p-6 border-t flex justify-between">
+          <div className="p-6 border-t border-dark-700 flex justify-between">
             <button 
               onClick={clearCart}
-              className="text-red-500 hover:text-red-700 text-sm"
+              className="text-red-400 hover:text-red-300 text-sm"
             >
               Clear Cart
             </button>
-            <Link href="/books" className="text-primary-600 hover:text-primary-800 text-sm">
+            <Link href="/books" className="text-accent-400 hover:text-accent-300 text-sm">
               Continue Shopping
             </Link>
           </div>
@@ -138,23 +138,23 @@ export default function CartDetails() {
       </div>
       
       <div className="lg:col-span-1">
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-semibold mb-4">Order Summary</h2>
+        <div className="bg-dark-800 border border-dark-700 rounded-lg shadow-md p-6">
+          <h2 className="text-xl font-semibold mb-4 text-dark-100">Order Summary</h2>
           
           <div className="space-y-4">
             <div className="flex justify-between">
-              <span className="text-gray-600">Subtotal</span>
-              <span className="font-medium">${totalPrice.toFixed(2)}</span>
+              <span className="text-dark-300">Subtotal</span>
+              <span className="font-medium text-dark-200">${totalPrice.toFixed(2)}</span>
             </div>
             
             <div className="flex justify-between">
-              <span className="text-gray-600">Shipping</span>
-              <span className="font-medium">$0.00</span>
+              <span className="text-dark-300">Shipping</span>
+              <span className="font-medium text-dark-200">$0.00</span>
             </div>
             
-            <div className="border-t pt-4 flex justify-between">
-              <span className="font-bold">Total</span>
-              <span className="font-bold text-lg">${totalPrice.toFixed(2)}</span>
+            <div className="border-t border-dark-700 pt-4 flex justify-between">
+              <span className="font-bold text-dark-100">Total</span>
+              <span className="font-bold text-lg text-accent-400">${totalPrice.toFixed(2)}</span>
             </div>
           </div>
           
@@ -176,7 +176,7 @@ export default function CartDetails() {
           </button>
           
           {!isAuthenticated && (
-            <p className="text-sm text-gray-600 mt-4 text-center">
+            <p className="text-sm text-dark-400 mt-4 text-center">
               You'll need to log in before completing your purchase.
             </p>
           )}

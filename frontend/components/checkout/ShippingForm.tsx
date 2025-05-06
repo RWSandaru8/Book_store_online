@@ -85,12 +85,12 @@ export default function ShippingForm() {
   return (
     <form className="space-y-4">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-semibold">Shipping Information</h2>
+        <h2 className="text-xl font-semibold text-dark-100">Shipping Information</h2>
         {isAuthenticated && savedShippingInfo && (
           <button 
             type="button"
             onClick={handleLoadSavedInfo}
-            className="text-primary-600 flex items-center text-sm"
+            className="text-accent-400 hover:text-accent-300 flex items-center text-sm"
           >
             <FaHistory className="mr-1" /> Load Saved
           </button>
@@ -98,7 +98,7 @@ export default function ShippingForm() {
       </div>
       
       <div>
-        <label htmlFor="address" className="block text-gray-700 font-medium mb-1">
+        <label htmlFor="address" className="block text-dark-200 font-medium mb-1">
           Street Address
         </label>
         <input
@@ -112,7 +112,7 @@ export default function ShippingForm() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="city" className="block text-gray-700 font-medium mb-1">
+          <label htmlFor="city" className="block text-dark-200 font-medium mb-1">
             City
           </label>
           <input
@@ -125,7 +125,7 @@ export default function ShippingForm() {
         </div>
         
         <div>
-          <label htmlFor="state" className="block text-gray-700 font-medium mb-1">
+          <label htmlFor="state" className="block text-dark-200 font-medium mb-1">
             State/Province
           </label>
           <input
@@ -140,7 +140,7 @@ export default function ShippingForm() {
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label htmlFor="postalCode" className="block text-gray-700 font-medium mb-1">
+          <label htmlFor="postalCode" className="block text-dark-200 font-medium mb-1">
             Postal/Zip Code
           </label>
           <input
@@ -153,7 +153,7 @@ export default function ShippingForm() {
         </div>
         
         <div>
-          <label htmlFor="country" className="block text-gray-700 font-medium mb-1">
+          <label htmlFor="country" className="block text-dark-200 font-medium mb-1">
             Country
           </label>
           <select

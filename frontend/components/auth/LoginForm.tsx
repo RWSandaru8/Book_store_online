@@ -145,21 +145,21 @@ export function LoginForm() {
     return (
       <div className="space-y-4">
         <div className="text-center py-4">
-          <h2 className="text-xl font-semibold mb-2">Email Verification Required</h2>
-          <p className="mb-4">
+          <h2 className="text-xl font-semibold mb-2 text-dark-100">Email Verification Required</h2>
+          <p className="mb-4 text-dark-300">
             Your email ({userEmail}) needs to be verified before you can log in. Please enter the verification code sent to your email.
           </p>
         </div>
 
         {loginError && (
-          <div className="bg-red-50 border border-red-400 p-3 rounded text-red-800 text-sm">
+          <div className="bg-dark-800 border border-red-400 p-3 rounded text-red-300 text-sm">
             {loginError}
           </div>
         )}
 
         <form onSubmit={handleVerificationSubmit(onVerificationSubmit)} className="space-y-4">
           <div>
-            <label htmlFor="code" className="block text-gray-700 font-medium mb-1">
+            <label htmlFor="code" className="block text-dark-200 font-medium mb-1">
               Verification Code
             </label>
             <input
@@ -186,7 +186,7 @@ export function LoginForm() {
             <button
               type="button"
               onClick={resendVerificationCode}
-              className="text-primary-600 hover:text-primary-800 text-sm font-medium"
+              className="text-accent-400 hover:text-accent-300 text-sm font-medium"
               disabled={isSubmitting}
             >
               Didn't receive a code? Resend
@@ -198,60 +198,86 @@ export function LoginForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+    <div className="space-y-4">
       {loginError && (
-        <div className="bg-red-50 border border-red-400 p-3 rounded text-red-800 text-sm">
+        <div className="bg-dark-800 border border-red-400 p-3 rounded text-red-300 text-sm">
           {loginError}
         </div>
       )}
-      
-      <div>
-        <label htmlFor="email" className="block text-gray-700 font-medium mb-1">
-          Email Address
-        </label>
-        <input
-          id="email"
-          type="email"
-          className="input-field"
-          {...register('email')}
-        />
-        {errors.email && <p className="form-error">{errors.email.message}</p>}
+
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <div>
+          <label htmlFor="email" className="block text-dark-200 font-medium mb-1">
+            Email Address
+          </label>
+          <input
+            id="email"
+            type="email"
+            className="input-field"
+            placeholder="Enter your email"
+            {...register('email')}
+          />
+          {errors.email && <p className="form-error">{errors.email.message}</p>}
+        </div>
+
+        <div>
+          <div className="flex items-center justify-between mb-1">
+            <label htmlFor="password" className="block text-dark-200 font-medium">
+              Password
+            </label>
+            <button
+              type="button"
+              onClick={() => router.push('/auth/forgot-password')}
+              className="text-sm text-accent-400 hover:text-accent-300"
+            >
+              Forgot password?
+            </button>
+          </div>
+          <input
+            id="password"
+            type="password"
+            className="input-field"
+            placeholder="Enter your password"
+            {...register('password')}
+          />
+          {errors.password && <p className="form-error">{errors.password.message}</p>}
+        </div>
+
+        <div className="flex items-center">
+          <input
+            id="rememberMe"
+            type="checkbox"
+            className="h-4 w-4 accent-accent-500 border-dark-700 rounded"
+            {...register('rememberMe')}
+          />
+          <label htmlFor="rememberMe" className="ml-2 block text-dark-300">
+            Remember me
+          </label>
+        </div>
+
+        <div className="pt-2">
+          <button
+            type="submit"
+            className="btn-primary w-full"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Signing in...' : 'Sign In'}
+          </button>
+        </div>
+      </form>
+
+      <div className="text-center pt-4">
+        <p className="text-dark-300">
+          Don't have an account?{' '}
+          <button
+            type="button"
+            onClick={() => router.push('/auth/register')}
+            className="text-accent-400 hover:text-accent-300 font-medium"
+          >
+            Sign up
+          </button>
+        </p>
       </div>
-      
-      <div>
-        <label htmlFor="password" className="block text-gray-700 font-medium mb-1">
-          Password
-        </label>
-        <input
-          id="password"
-          type="password"
-          className="input-field"
-          {...register('password')}
-        />
-        {errors.password && <p className="form-error">{errors.password.message}</p>}
-      </div>
-      
-      <div className="flex items-center">
-        <input
-          id="rememberMe"
-          type="checkbox"
-          className="h-4 w-4 rounded border-gray-300 text-primary-600 focus:ring-primary-500"
-          {...register('rememberMe')}
-        />
-        <label htmlFor="rememberMe" className="ml-2 block text-gray-700">
-          Remember me
-        </label>
-      </div>
-      
-      <div className="pt-2">
-        <button
-          type="submit"
-          className="btn-primary w-full"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? 'Logging in...' : 'Login'}
-        </button>
-      </div>
-    </form>
+    </div>
   );
 } 

@@ -100,7 +100,7 @@ export default function BookDetail({ id }: BookDetailProps) {
   if (error || !book) {
     return (
       <div className="text-center py-8">
-        <p className="text-red-500">{error || 'Book not found'}</p>
+        <p className="text-red-400">{error || 'Book not found'}</p>
         <button 
           onClick={() => router.push('/books')}
           className="mt-4 btn-primary"
@@ -118,13 +118,13 @@ export default function BookDetail({ id }: BookDetailProps) {
     <div>
       <button 
         onClick={() => router.back()}
-        className="flex items-center text-primary-600 hover:text-primary-800 mb-6"
+        className="flex items-center text-accent-400 hover:text-accent-500 mb-6"
       >
         <FaArrowLeft className="mr-2" /> Back
       </button>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="relative aspect-[2/3] bg-gray-200 rounded-lg overflow-hidden">
+        <div className="relative aspect-[2/3] bg-dark-700 rounded-lg overflow-hidden">
           {book.thumbnail ? (
             <Image
               src={book.thumbnail}
@@ -136,54 +136,54 @@ export default function BookDetail({ id }: BookDetailProps) {
             />
           ) : (
             <div className="flex items-center justify-center h-full">
-              <span className="text-gray-400">No image available</span>
+              <span className="text-dark-400">No image available</span>
             </div>
           )}
         </div>
         
         <div>
-          <h1 className="text-3xl font-bold mb-2">{book.title}</h1>
+          <h1 className="text-3xl font-bold mb-2 text-dark-100">{book.title}</h1>
           
-          <p className="text-gray-600 text-lg mb-4">
+          <p className="text-dark-300 text-lg mb-4">
             {book.authors?.length > 0
               ? book.authors.join(', ')
               : 'Unknown Author'}
           </p>
           
-          <div className="text-2xl font-bold text-gray-800 mb-4">
+          <div className="text-2xl font-bold text-accent-400 mb-4">
             {formattedPrice}
           </div>
           
           <div className="mb-6">
-            <div className="bg-gray-100 p-4 rounded-lg mb-4">
-              <p className="font-semibold mb-1">Availability:</p>
+            <div className="bg-dark-800 border border-dark-700 p-4 rounded-lg mb-4">
+              <p className="font-semibold mb-1 text-dark-200">Availability:</p>
               {book.stock > 0 ? (
-                <p className="text-green-600">
+                <p className="text-green-400">
                   In Stock ({book.stock} available)
                 </p>
               ) : (
-                <p className="text-red-600">Out of Stock</p>
+                <p className="text-red-400">Out of Stock</p>
               )}
             </div>
             
             {book.stock > 0 && (
-              <div className="flex items-center mb-6">
+              <div className="flex items-center mb-6 text-dark-200">
                 <span className="mr-4">Quantity:</span>
                 <div className="flex">
                   <button
                     onClick={() => handleQuantityChange(quantity - 1)}
                     disabled={quantity <= 1}
-                    className="bg-gray-200 px-3 py-1 rounded-l-md disabled:opacity-50"
+                    className="bg-dark-700 hover:bg-dark-600 px-3 py-1 rounded-l-md disabled:opacity-50 text-dark-200"
                   >
                     -
                   </button>
-                  <span className="bg-gray-100 px-4 py-1 flex items-center">
+                  <span className="bg-dark-800 border-t border-b border-dark-700 px-4 py-1 flex items-center text-dark-200">
                     {quantity}
                   </span>
                   <button
                     onClick={() => handleQuantityChange(quantity + 1)}
                     disabled={quantity >= book.stock}
-                    className="bg-gray-200 px-3 py-1 rounded-r-md disabled:opacity-50"
+                    className="bg-dark-700 hover:bg-dark-600 px-3 py-1 rounded-r-md disabled:opacity-50 text-dark-200"
                   >
                     +
                   </button>
@@ -202,8 +202,8 @@ export default function BookDetail({ id }: BookDetailProps) {
           </div>
           
           <div>
-            <h2 className="text-xl font-semibold mb-2">Description</h2>
-            <p className="text-gray-700 whitespace-pre-line">
+            <h2 className="text-xl font-semibold mb-2 text-dark-100">Description</h2>
+            <p className="text-dark-300 whitespace-pre-line">
               {book.description || 'No description available.'}
             </p>
           </div>
