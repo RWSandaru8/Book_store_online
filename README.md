@@ -20,6 +20,14 @@ The **PageVault** is an intuitive book-browsing and purchasing platform where vi
 - **Customer Portal**: Registered users can manage carts, initiate checkout, and track purchases.
 - **Shipping Flow**: Ensures accurate order dispatch through structured shipping form inputs.
 
+## Technologies Used
+- **Next.js**: React framework for server-rendered applications
+- **TypeScript**: Static typing for better development experience
+- **Tailwind CSS**: Utility-first CSS framework
+- **React Hook Form**: Form handling with validation
+- **Zod**: Schema validation
+- **Axios**: HTTP client for API requests
+- **React Icons**: Icon library
 ---
 
 ## Instructions to Run the Project
